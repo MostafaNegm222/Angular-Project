@@ -18,7 +18,7 @@ import { adminGuard } from './guards/admin-guard';
 export const routes: Routes = [
   {path:"" , redirectTo:"home" ,pathMatch:"full"},
   {path:"" , component:Main ,children:[
-    {path:"home" , component:Home , canActivate:[adminGuard]},
+    {path:"home" , component:Home},
     {path:"products" , component:Products},
     {path:"profile" , component:Profile , canActivate:[authGuard]},
     {path:"products/new" , component:AddProduct , canActivate:[authGuard]},
