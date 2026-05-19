@@ -1,14 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IProduct } from '../models/iproduct';
-import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
   constructor (private _http:HttpClient) {}
-  apiLink = `${environment.apiLink}/products`
+  apiLink = `https://zealous-contentment-production-5f84.up.railway.app/products`
   getProducts(params:any={}) {
     return this._http.get(`${this.apiLink}`,{params})
   }

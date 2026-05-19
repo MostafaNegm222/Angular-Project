@@ -1,12 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Auth {
-  apiLink = `${environment.apiLink}/auth`
+  apiLink = `https://zealous-contentment-production-5f84.up.railway.app/auth`
   constructor(private _http:HttpClient) {}
 
   login (user:any) {
