@@ -14,7 +14,7 @@ export class Pagination {
 
   @Input()
   set currentPage (value:number) {
-    this.page = value
+    this.page = value || 1
   }
 
   @Output()
