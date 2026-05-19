@@ -1,0 +1,24 @@
+<div class="container my-5">
+<h1 class="text-center text-primary my-4">Login Page</h1>
+<form [formGroup]="login" (submit)="submit()">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" formControlName="email" class="form-control" [class.is-invalid]="checkInput('email')">
+      @if(checkInput('email')) {
+        @if(login.get('email')?.errors?.["required"]) {
+          <small class="text-danger">this field is required</small>
+        }
+      }
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">password</label>
+      <input type="password" formControlName="password" class="form-control" [class.is-invalid]="checkInput('password')">
+      @if(checkInput('password')) {
+        @if(login.get('password')?.errors?.["required"]) {
+          <small class="text-danger">this field is required</small>
+        }
+      }
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="login.invalid">Login</button>
+</form>
+</div>

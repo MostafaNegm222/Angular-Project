@@ -1,0 +1,57 @@
+<h1 class="text-center text-primary mb-4">Add Product Form</h1>
+<form #addProduct="ngForm" (ngSubmit)="onSubmit(addProduct)" class="mb-5" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="name" class="form-label">Product Name :</label>
+    <input type="text" [class.is-invalid]="(name.errors && (name.touched || name.dirty))" class="form-control" id="name" name="name" #name="ngModel" [(ngModel)]="formData.name" required minlength="3">
+    @if(name.errors && (name.touched || name.dirty)) {
+      @if (name.errors["required"]) {
+        <small class="text-danger">Name is required</small>
+      }
+      @if (name.errors["minlength"]) {
+        <small class="text-danger">Name is must be 3 char or above</small>
+      }
+    }
+  </div>
+  <div class="mb-3">
+    <label for="price" class="form-label">Product price :</label>
+    <input type="number" [class.is-invalid]="(price.errors && (price.touched || price.dirty))" class="form-control" id="price" name="price" #price="ngModel" [(ngModel)]="formData.price" required min="1">
+    @if(price.errors && (price.touched || price.dirty)) {
+      @if (price.errors["required"]) {
+        <small class="text-danger">price is required</small>
+      }
+      @if (price.errors["min"]) {
+        <small class="text-danger">price is must be 3 positive value</small>
+      }
+    }
+  </div>
+  <div class="mb-3">
+    <label for="image" class="form-label">Product image :</label>
+    <input type="file" class="form-control" id="image" name="image" #image (change)="onSelectedFile($event)"  required>
+  </div>
+  <div class="mb-3">
+    <label for="category" class="form-label">Product Category</label>
+    <select class="form-select" [class.is-invalid]="(category.errors && (category.touched || category.dirty))" name="category" id="category" #category="ngModel" [(ngModel)]="formData.category" required>
+      <option value="clothes">clothes</option>
+      <option value="electronics">electronics</option>
+      <option value="sports">sports</option>
+    </select>
+    @if(category.errors && (category.touched || category.dirty)) {
+      @if(category.errors["required"]) {
+        <small class="text-danger">category is required</small>
+      }
+    }
+  </div>
+   <div class="mb-3">
+    <label for="description" class="form-label">Product description :</label>
+    <textarea [class.is-invalid]="(description.errors && (description.touched || description.dirty))" class="form-control" id="description" name="description" #description="ngModel" [(ngModel)]="formData.description" required minlength="3"></textarea>
+    @if(description.errors && (description.touched || description.dirty)) {
+      @if (description.errors["required"]) {
+        <small class="text-danger">description is required</small>
+      }
+      @if (description.errors["minlength"]) {
+        <small class="text-danger">description is must be 3 char or above</small>
+      }
+    }
+  </div>
+  <button class="btn btn-primary mt-4" type="submit" [disabled]="addProduct.invalid">Add Product</button>
+</form>

@@ -1,0 +1,20 @@
+<div class="container my-5">
+  <h1 class="text-center text-primary my-4">Product page</h1>
+  <app-search (searchEvent)="changeSearch($event)"></app-search>
+  <div class="d-flex gap-3">
+    <div class="w-25">
+      <app-filter (filterEvent)="changeFilter($event)"></app-filter>
+      <app-sort (sortEvent)="changeSort($event)"></app-sort>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 w-75">
+    @for (p of products(); track p._id) {
+      <app-card [product]="p">
+        <a [routerLink]="['/products',p._id]" class="btn btn-primary">Show more</a>
+      </app-card>
+    }
+  </div>
+  </div>
+  <div class="d-flex justify-content-center mt-5">
+    <app-pagination [totalProduct]="totalProduct" (pageEvent)="changePage($event)" [currentPage]="currentPage"></app-pagination>
+  </div>
+</div>

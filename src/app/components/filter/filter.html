@@ -1,0 +1,53 @@
+<div class="p-3 shadow mb-4">
+  <h2 class="text-center text-primary mb-3">Filter products</h2>
+  <form>
+    <div class="form-check mb-3">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="filter"
+        id="all"
+        value=""
+        [(ngModel)]="filter"
+        (ngModelChange)="changeFilter()"
+      />
+      <label class="form-check-label" for="all"> All </label>
+    </div>
+    <div class="form-check mb-3">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="filter"
+        id="clothes"
+        value="clothes"
+        [(ngModel)]="filter"
+        (ngModelChange)="changeFilter()"
+      />
+      <label class="form-check-label" for="clothes"> Clothes </label>
+    </div>
+    <div class="form-check mb-3">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="filter"
+        id="electronics"
+        value="electronics"
+        [(ngModel)]="filter"
+        (ngModelChange)="changeFilter()"
+      />
+      <label class="form-check-label" for="electronics"> Electronics </label>
+    </div>
+    <div class="form-check mb-3">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="filter"
+        id="sports"
+        value="sports"
+        [(ngModel)]="filter"
+        (ngModelChange)="changeFilter()"
+      />
+      <label class="form-check-label" for="sports"> Sports </label>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,10 @@
+@if(product) {
+  <app-card [product]="product" [productDetails]="productDetails">
+    <div class="d-flex justify-content-between mb-4">
+      <span class="text-bg-success p-2 rounded-2">{{product.category}}</span>
+      <span class="text-bg-primary p-2 rounded-2">{{product.price | currency}}</span>
+    </div>
+    <a [routerLink]="['/products']" class="btn btn-primary">Back to Products</a>
+    <app-delete-model [product]="product"></app-delete-model>
+  </app-card>
+}
